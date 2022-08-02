@@ -1,0 +1,352 @@
+{% load static%}
+<html lang="en">
+<head>
+  <title>Digilibrary TV</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900"> 
+  <link rel="stylesheet" href="{% static 'podcast/fonts/icomoon/style.css'%}">
+
+  <link rel="stylesheet" href="{% static 'podcast/css/bootstrap.min.css'%}">
+  <link rel="stylesheet" href="{% static 'podcast/css/magnific-popup.css'%}">
+  <link rel="stylesheet" href="{% static 'podcast/css/jquery-ui.css'%}">
+  <link rel="stylesheet" href="{% static 'podcast/css/owl.carousel.min.css'%}">
+  <link rel="stylesheet" href="{% static 'podcast/css/owl.theme.default.min.css'%}">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+
+
+  <link rel="stylesheet" href="{% static 'podcast/css/aos.css'%}">
+
+  <link rel="stylesheet" href="{% static 'podcast/css/style.css'%}">
+
+</head>
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <header class="site-navbar py-4" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center">
+
+
+          <div class="col-3">
+            <h1 class="site-logo"><a href="" class="h2">Digilibrary TV</a></h1>
+          </div>
+          <div class="col-9">
+            <nav class="site-navigation position-relative text-right text-md-right" role="navigation">
+
+
+
+              <div class="d-block d-lg-none ml-md-0 mr-auto"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+              <ul class="site-menu js-clone-nav d-none d-lg-block">
+                <li>
+                    <a href="{% url 'home'%}">Home</a>
+                  </li>
+                  <li><a href="{% url 'musichome'%}">Music</a></li>
+                  <li><a href="{% url 'podcasthome'%}">Podcasts</a></li>
+                  <li><a href="{% url 'dashboard'%}">Dashboard</a></li>
+                  <li>
+                  <form method="POST" action="{% url 'tvsearch'%}" id="tvsearchform" name="tvsearchform">
+                    <i class="bx bx-search fs-4 lh-0"></i>
+                    <input
+                      type="text"
+                      name = "search"
+                      id="search"
+                      class="form-control border-0 shadow-none"
+                      placeholder="search for TV, movies 🎞"
+                      aria-label="Search..."
+                    />
+                    <script>
+                      document.getElementById('search').addEventListener('keyup', function(event) {
+                          if (event.code === 'Enter')
+                          {
+                              event.preventDefault();
+                              document.querySelector('tvsearchform').submit();
+                          }
+                      });
+                    </script>
+                  </form>
+              </li>
+              </ul>
+            </nav>
+
+
+          </div>
+
+        </div>
+      </div>
+      
+    </header>
+
+    
+
+    <div class="site-section">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="featured-user  mb-5 mb-lg-0">
+              <h3 class="mb-4">Popular </h3>
+              <ul class="list-unstyled">
+                {% for item in popularitems%}
+                  <li>
+                  <a href="{% url 'tvsingle' item.id%}" class="d-flex align-items-center">
+                    <img src="{{item.image.url}}" alt="Image" class="img-fluid mr-2">
+                    <div class="podcaster">
+                      <span class="d-block">{{item.name}}</span>
+                      <span class="small">{{item.likes}} likes</span>
+                    </div>
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-9">
+            <h1 class="mb-3 display-3">Search Results</h1>
+            {% for item in result %}
+            <div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
+
+                <div class="image" style="background-image: url('{{item.image.url}}');"></div>
+                <div class="text">
+                  <h3 class="font-weight-light"><a href="{% url 'tvsingle' item.id%}">{{item.name}}</a></h3>
+                  <div class="text-white mb-3"><span class="text-black-opacity-05"><small>{{item.uploaded_by.bio.name}}<span class="sep">/</span> {{item.uploaded_date}}</small></span></div>
+                </div>
+              </div>
+              <br>
+            {% endfor %}
+            </div>
+          </div>
+        </div>
+
+    <!-- <div class="site-section">
+      <div class="container" data-aos="fade-up">
+        <div class="row mb-5">
+          <div class="col-md-12 text-center">
+            <h2 class="font-weight-bold text-black">Behind The Mic</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-5 mb-lg-5">
+            <div class="team-member">
+
+              <img src="images/person_1.jpg" alt="Image" class="img-fluid">
+
+              <div class="text">
+
+                <h2 class="mb-2 font-weight-light h4">Megan Smith</h2>
+                <span class="d-block mb-2 text-white-opacity-05">Creative Director</span>
+                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit ullam reprehenderit nemo.</p>
+                <p>
+                  <a href="#" class="text-white p-2"><span class="icon-facebook"></span></a>
+                  <a href="#" class="text-white p-2"><span class="icon-twitter"></span></a>
+                  <a href="#" class="text-white p-2"><span class="icon-linkedin"></span></a>
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-5 mb-lg-5">
+            <div class="team-member">
+
+              <img src="images/person_2.jpg" alt="Image" class="img-fluid">
+
+              <div class="text">
+
+                <h2 class="mb-2 font-weight-light h4">Brooke Cagle</h2>
+                <span class="d-block mb-2 text-white-opacity-05">Creative Director</span>
+                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit ullam reprehenderit nemo.</p>
+                <p>
+                  <a href="#" class="text-white p-2"><span class="icon-facebook"></span></a>
+                  <a href="#" class="text-white p-2"><span class="icon-twitter"></span></a>
+                  <a href="#" class="text-white p-2"><span class="icon-linkedin"></span></a>
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-5 mb-lg-5">
+            <div class="team-member">
+
+              <img src="images/person_3.jpg" alt="Image" class="img-fluid">
+
+              <div class="text">
+
+                <h2 class="mb-2 font-weight-light h4">Philip Martin</h2>
+                <span class="d-block mb-2 text-white-opacity-05">Creative Director</span>
+                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit ullam reprehenderit nemo.</p>
+                <p>
+                  <a href="#" class="text-white p-2"><span class="icon-facebook"></span></a>
+                  <a href="#" class="text-white p-2"><span class="icon-twitter"></span></a>
+                  <a href="#" class="text-white p-2"><span class="icon-linkedin"></span></a>
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-5 mb-lg-5">
+            <div class="team-member">
+
+              <img src="images/person_4.jpg" alt="Image" class="img-fluid">
+
+              <div class="text">
+
+                <h2 class="mb-2 font-weight-light h4">Steven Ericson</h2>
+                <span class="d-block mb-2 text-white-opacity-05">Creative Director</span>
+                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit ullam reprehenderit nemo.</p>
+                <p>
+                  <a href="#" class="text-white p-2"><span class="icon-facebook"></span></a>
+                  <a href="#" class="text-white p-2"><span class="icon-twitter"></span></a>
+                  <a href="#" class="text-white p-2"><span class="icon-linkedin"></span></a>
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-5 mb-lg-5">
+            <div class="team-member">
+
+              <img src="images/person_5.jpg" alt="Image" class="img-fluid">
+
+              <div class="text">
+
+                <h2 class="mb-2 font-weight-light h4">Nathan Dumlao</h2>
+                <span class="d-block mb-2 text-white-opacity-05">Creative Director</span>
+                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit ullam reprehenderit nemo.</p>
+                <p>
+                  <a href="#" class="text-white p-2"><span class="icon-facebook"></span></a>
+                  <a href="#" class="text-white p-2"><span class="icon-twitter"></span></a>
+                  <a href="#" class="text-white p-2"><span class="icon-linkedin"></span></a>
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-5 mb-lg-5">
+            <div class="team-member">
+
+              <img src="images/person_6.jpg" alt="Image" class="img-fluid">
+
+              <div class="text">
+
+                <h2 class="mb-2 font-weight-light h4">Brooke Cagle</h2>
+                <span class="d-block mb-2 text-white-opacity-05">Creative Director</span>
+                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit ullam reprehenderit nemo.</p>
+                <p>
+                  <a href="#" class="text-white p-2"><span class="icon-facebook"></span></a>
+                  <a href="#" class="text-white p-2"><span class="icon-twitter"></span></a>
+                  <a href="#" class="text-white p-2"><span class="icon-linkedin"></span></a>
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div> -->
+
+    <div class="site-section bg-light block-13">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-12 text-center">
+            <h2 class="font-weight-bold text-black">Featured TV</h2>
+          </div>
+        </div>
+        <div class="nonloop-block-13 owl-carousel">
+          {% for item in featuredseries %}
+          <div class="text-center p-3 p-md-5 bg-white">
+            <div class="mb-4">
+              <img src="{{item.image.url}}" alt="Image" class="w-50 mx-auto img-fluid rounded-circle">
+            </div>
+            <div class="">
+              <a href="{% url 'tvsingle' item.id%}"> <h3 class="font-weight-light h5">{{item.name}}</h3></a>
+              <p>{{item.description}}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="site-section bg-light block-13">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-12 text-center">
+            <h2 class="font-weight-bold text-black">Featured movies</h2>
+          </div>
+        </div>
+        <div class="nonloop-block-13 owl-carousel">
+          {% for item in featuredmovies %}
+            <div class="text-center p-3 p-md-5 bg-white">
+            <div class="mb-4">
+              <img src="{{item.image.url}}" alt="Image" class="w-50 mx-auto img-fluid rounded-circle">
+            </div>
+            <div class="">
+              <a href="{% url 'tvsingle' item.id%}"> <h3 class="font-weight-light h5">{{item.name}}</h3></a>
+              <p>{{item.description}}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'podcast/js/jquery-3.3.1.min.js'%}"></script>
+  <script src="{% static 'podcast/js/jquery-migrate-3.0.1.min.js'%}"></script>
+  <script src="{% static 'podcast/js/jquery-ui.js'%}"></script>
+  <script src="{% static 'podcast/js/popper.min.js'%}"></script>
+  <script src="{% static 'podcast/js/bootstrap.min.js'%}"></script>
+  <script src="{% static 'podcast/js/owl.carousel.min.js'%}"></script>
+  <script src="{% static 'podcast/js/jquery.stellar.min.js'%}"></script>
+  <script src="{% static 'podcast/js/jquery.countdown.min.js'%}"></script>
+  <script src="{% static 'podcast/js/jquery.magnific-popup.min.js'%}"></script>
+  <script src="{% static 'podcast/js/aos.js'%}"></script>
+
+  <script src="{% static 'podcast/js/mediaelement-and-player.min.js'%}"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;
+
+      for (var i = 0; i < total; i++) {
+        new MediaElementPlayer(mediaElements[i], {
+          pluginPath: 'https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/',
+          shimScriptAccess: 'always',
+          success: function () {
+            var target = document.body.querySelectorAll('.player'), targetTotal = target.length;
+            for (var j = 0; j < targetTotal; j++) {
+              target[j].style.visibility = 'visible';
+            }
+          }
+        });
+      }
+    });
+  </script>
+
+
+  <script src="{% static 'podcast/js/main.js'%}"></script>
+
+</body>
+</html>

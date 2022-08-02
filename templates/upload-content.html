@@ -1,0 +1,243 @@
+{% extends 'dashboard_base.html' %}
+{% load static%}
+
+
+        {%block content%}
+          <div class="layout-page">
+            <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Creator Dashboard /</span> Upload Content</h4>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="nav nav-pills flex-column flex-md-row mb-3">
+                    <li class="nav-item">
+                      <a class="nav-link active" href=""><i class="bx bx-user me-1"></i> Account</a>
+                    </li>
+                  </ul>
+                  <div class="card mb-4">
+                    <h5 class="card-header">Upload TV Pack</h5>
+                    <hr class="my-0" />
+                    <div class="card-body">
+                      <form method="POST" action="{% url 'uploadtvpack'%}" enctype="multipart/form-data">
+                        {% csrf_token%}
+                        <div class="row">
+                          <div class="mb-3 col-md-6">
+                            <label for="name" class="form-label">Name</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="name"
+                              name="name"
+                              autofocus
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="type" class="form-label">Type</label>
+                            <select name="type" id="type">
+                              <option id="series" name="series" value="series">Series</option>
+                              <option id="movie" name="movie" value="movie">Movie</option>
+                            </select>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="genre" class="form-label">Genre</label>
+                            <select name="genre" id="genre">
+                              <option value="thriller">Thriller</option>
+                              <option value="comedy">Comedy</option>
+                            </select>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea id="description" name="description" placeholder="enter description"></textarea>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="image" class="form-label">Upload picture</label>
+                            <input
+                              class="form-control"
+                              type="file"
+                              id="image"
+                              name="image"
+                              accept="image/png, image/jpeg"
+                              placeholder="Upload new photo..."
+                            />
+                          </div>
+                        </div>
+                        <div class="mt-2">
+                          <button type="submit" class="btn btn-primary me-2">Save changes</button>
+                          <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="card mb-4">
+                    <h5 class="card-header">Upload Music Pack</h5>
+                    <hr class="my-0" />
+                    <div class="card-body">
+                      <form method="POST" action="{% url 'uploadmusicpack'%}" enctype="multipart/form-data">
+                        {% csrf_token%}
+                        <div class="row">
+                          <div class="mb-3 col-md-6">
+                            <label for="name" class="form-label">Name</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="name"
+                              name="name"
+                              autofocus
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="type" class="form-label">Type</label>
+                            <select name="type" id="type">
+                              <option value="single">Single</option>
+                              <option value="album">Album</option>
+                            </select>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="genre" class="form-label">Genre</label>
+                            <select name="genre" id="genre">
+                              <option value="rap">Rap</option>
+                              <option value="soul">Soul</option>
+                            </select>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea id="description" name="description" placeholder="enter description"></textarea>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="image" class="form-label">Upload picture</label>
+                            <input
+                              class="form-control"
+                              type="file"
+                              id="image"
+                              name="image"
+                              accept="image/png, image/jpeg"
+                              placeholder="Upload new photo..."
+                            />
+                          </div>
+                        </div>
+                        <div class="mt-2">
+                          <button type="submit" class="btn btn-primary me-2">Save changes</button>
+                          <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="card mb-4">
+                    <h5 class="card-header">Upload Podcast Pack</h5>
+                    <hr class="my-0" />
+                    <div class="card-body">
+                      <form method="POST" action="{% url 'uploadpodcastpack'%}" enctype="multipart/form-data">
+                        {% csrf_token%}
+                        <div class="row">
+                          <div class="mb-3 col-md-6">
+                            <label for="name" class="form-label">Name</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="name"
+                              name="name"
+                              autofocus
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="genre" class="form-label">Genre</label>
+                            <select name="genre" id="genre">
+                              <option value="comedy">Comedy</option>
+                              <option value="lifestyle">Lifestyle</option>
+                            </select>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea id="description" name="description" placeholder="enter description"></textarea>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="image" class="form-label">Upload picture</label>
+                            <input
+                              class="form-control"
+                              type="file"
+                              id="image"
+                              name="image"
+                              accept="image/png, image/jpeg"
+                              placeholder="Upload new photo..."
+                            />
+                          </div>
+                        </div>
+                        <div class="mt-2">
+                          <button type="submit" class="btn btn-primary me-2">Save changes</button>
+                          <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <h5 class="card-header">Upload src</h5>
+                    <div class="card-body">
+                      <form id="UploadSrcForm" method="POST" action="{% url 'uploadsrc'%}" enctype="multipart/form-data">
+                        {% csrf_token%}
+                        <div class="row">
+                          <div class="mb-3 col-md-6">
+                            <label for="srcname" class="form-label">Src Name</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="srcname"
+                              name="srcname"
+                              autofocus
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="pack" class="form-label">Pack</label>
+                            <select name="pack" id="pack">
+                              {% for p in packs%}
+                                <option value="{{p.name}}">{{p.name}}</option>
+                                <input type="hidden" value="{{p.id}}" name="id">
+                              {% endfor %}
+                            </select>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="image" class="form-label">Upload Source file</label>
+                            <input
+                              class="form-control"
+                              type="file"
+                              multiple="multiple"
+                              id="src"
+                              name="src"
+                              accept="audio/*, video/*"
+                              placeholder="Upload new source..."
+                            />
+                          </div>
+                        </div>
+                        <div class="mt-2">
+                          <button type="submit" class="btn btn-primary me-2">Save changes</button>
+                          <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- / Content -->
+
+            <!-- Footer -->
+            <footer class="content-footer footer bg-footer-theme">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0">
+                  © Akerele Oladipupo
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                  , made with ❤️ by
+                  <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
+                </div>
+              </div>
+            </footer>
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          </div>
+        {%endblock content%}

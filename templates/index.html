@@ -1,0 +1,272 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>Digilibrary</title>
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Creative Portfolio Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'home/images/digilibrary.png'%}" />
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'home/plugins/bootstrap/bootstrap.min.css'%}">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="{% static 'home/plugins/slick/slick.css'%}">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="{% static 'home/plugins/themify-icons/themify-icons.css'%}">
+
+  <!-- Main Stylesheet -->
+  <link href="{% static 'home/css/style.css'%}" rel="stylesheet">
+
+</head>
+<body>
+  
+
+<header class="navigation fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand font-tertiary h3" href=""><img src="{% static 'home/images/digilibrary.png'%}" alt="Digilibrary"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'signup'%}">sign up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'creatorsignup'%}">sign up as a creator</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- hero area -->
+<section class="hero-area bg-primary" id="parallax">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 mx-auto">
+        <h1 class="text-white font-tertiary">Hi! <br> Welcome to <br> Digilibrary</h1>
+      </div>
+    </div>
+  </div>
+  <div class="layer-bg w-100">
+    <img class="img-fluid w-100" src="{% static 'home/images/illustrations/leaf-bg.png'%}" alt="bg-shape">
+  </div>
+  <div class="layer" id="l2">
+    <img src="{% static 'home/images/illustrations/dots-cyan.png'%}" alt="bg-shape">
+  </div>
+  <div class="layer" id="l3">
+    <img src="{% static 'home/images/illustrations/leaf-orange.png'%}" alt="bg-shape">
+  </div>
+  <div class="layer" id="l4">
+    <img src="{% static 'home/images/illustrations/dots-orange.png'%}" alt="bg-shape">
+  </div>
+  <div class="layer" id="l5">
+    <img src="{% static 'home/images/illustrations/leaf-yellow.png'%}" alt="bg-shape">
+  </div>
+  <div class="layer" id="l6">
+    <img src="{% static 'home/images/illustrations/leaf-cyan.png'%}" alt="bg-shape">
+  </div>
+  <div class="layer" id="l7">
+    <img src="{% static 'home/images/illustrations/dots-group-orange.png'%}" alt="bg-shape">
+  </div>
+  <div class="layer" id="l8">
+    <img src="{% static 'home/images/illustrations/leaf-pink-round.png'%}" alt="bg-shape">
+  </div>
+  <div class="layer" id="l9">
+    <img src="{% static 'home/images/illustrations/leaf-cyan-2.png'%}" alt="bg-shape">
+  </div>
+  <!-- social icon -->
+  <ul class="list-unstyled ml-5 mt-3 position-relative zindex-1">
+    <li class="mb-3"><a class="text-white" href=""><i class="ti-facebook"></i></a></li>
+    <li class="mb-3"><a class="text-white" href=""><i class="ti-instagram"></i></a></li>
+    <li class="mb-3"><a class="text-white" href=""><i class="ti-dribbble"></i></a></li>
+    <li class="mb-3"><a class="text-white" href=""><i class="ti-twitter"></i></a></li>
+  </ul>
+  <!-- /social icon -->
+</section>
+<!-- /hero area -->
+
+<!-- about -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto text-center">
+        <p class="font-secondary paragraph-lg text-dark">Digilibrary is an on demand platform for movies, tv shows, documentaries, music and podcasts all for a price of $10.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /about -->
+
+
+<!-- services -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="section-title">Services</h2>
+      </div>
+      <div class="col-md-4 mb-4 mb-md-0">
+        <div class="card hover-shadow shadow">
+          <div class="card-body text-center px-4 py-5">
+            <i class="ti-blackboard icon mb-5 d-inline-block"></i>
+            <h4 class="mb-4">TV</h4>
+            <p>Digilibrary offers a library that boasts of over 100 tv shows, movies and documentaries.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4 mb-md-0">
+        <div class="card active-bg-primary hover-shadow shadow">
+          <div class="card-body text-center px-4 py-5">
+            <i class="ti-music-alt icon mb-5 d-inline-block"></i>
+            <h4 class="mb-4">Music</h4>
+            <p>Digilibrary offers a library that boasts of over 100 albums and singles from your favorite artists.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4 mb-md-0">
+        <div class="card hover-shadow shadow">
+          <div class="card-body text-center px-4 py-5">
+            <i class="ti-microphone icon mb-5 d-inline-block"></i>
+            <h4 class="mb-4">Podcasts</h4>
+            <p>Digilibrary offers a library that boasts of over 100 podcast series from your favorite content creators.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /services -->
+
+
+<!-- testimonial -->
+<section class="section bg-primary position-relative testimonial-bg-shapes">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="section-title text-white mb-5">Testimonials</h2>
+      </div>
+      <div class="col-lg-10 mx-auto testimonial-slider">
+        <!-- slider-item -->
+        <div class="text-center testimonial-content">
+          <i class="ti-quote-right text-white icon mb-4 d-inline-block"></i>
+          <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation
+              ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit
+            in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <img class="img-fluid rounded-circle mb-4 d-inline-block" src="{% static 'home/images/testimonial/client-1.png'%}"
+            alt="client-image">
+          <h4 class="text-white">Jesica Gomez</h4>
+          <h6 class="text-light mb-4">CEO, Funder</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- bg shapes -->
+  <img src="{% static 'home/images/backgrounds/map.png'%}" alt="map" class="img-fluid bg-map">
+  <img src="{% static 'home/images/illustrations/dots-group-v.png'%}" alt="bg-shape" class="img-fluid bg-shape-1">
+  <img src="{% static 'home/images/illustrations/leaf-orange.png'%}" alt="bg-shape" class="img-fluid bg-shape-2">
+  <img src="{% static 'home/images/illustrations/dots-group-sm.png'%}" alt="bg-shape" class="img-fluid bg-shape-3">
+  <img src="{% static 'home/images/illustrations/leaf-pink-round.png'%}" alt="bg-shape" class="img-fluid bg-shape-4">
+  <img src="{% static 'home/images/illustrations/leaf-cyan.png'%}" alt="bg-shape" class="img-fluid bg-shape-5">
+</section>
+<!-- /testimonial -->
+
+
+<!-- contact -->
+<section class="section section-on-footer" data-background="{% static 'home/images/backgrounds/bg-dots.png'%}">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="section-title">Contact Info</h2>
+      </div>
+      <div class="col-lg-8 mx-auto">
+        <div class="bg-white rounded text-center p-5 shadow-down">
+          <h4 class="mb-80">Contact Form</h4>
+          <form action="#" class="row">
+            <div class="col-md-6">
+              <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4" required>
+            </div>
+            <div class="col-md-6">
+              <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4" required>
+            </div>
+            <div class="col-12">
+              <textarea name="message" id="message" class="form-control px-0 mb-4"
+                placeholder="Type Message Here" required></textarea>
+            </div>
+            <div class="col-lg-6 col-10 mx-auto">
+              <button class="btn btn-primary w-100">send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /contact -->
+
+<!-- footer -->
+<footer class="bg-dark footer-section">
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5 class="text-light">Email</h5>
+          <p class="text-white paragraph-lg font-secondary">oladipupoemmanuel85@gmail.com</p>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-light">Phone</h5>
+          <p class="text-white paragraph-lg font-secondary">+2348129476743</p>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-light">Address</h5>
+          <p class="text-white paragraph-lg font-secondary">125/A, CA Commercial Area, California, USA</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-top text-center border-dark py-5">
+    <p class="mb-0 text-light">Copyright &copy; Akerele Oladipupo<script>
+        var CurrentYear = new Date().getFullYear()
+        document.write(CurrentYear)
+      </script> Template by <a class="text-white-50" href="Themefisher">Themefisher</a></p>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="{% static 'home/plugins/jQuery/jquery.min.js'%}"></script>
+<!-- Bootstrap JS -->
+<script src="{% static 'home/plugins/bootstrap/bootstrap.min.js'%}"></script>
+<!-- slick slider -->
+<script src="{% static 'home/plugins/slick/slick.min.js'%}"></script>
+<!-- filter -->
+<script src="{% static 'home/plugins/shuffle/shuffle.min.js'%}"></script>
+
+<!-- Main Script -->
+<script src="{% static 'home/js/script.js'%}"></script>
+
+</body>
+</html>

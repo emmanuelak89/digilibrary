@@ -1,0 +1,1 @@
+web: gunicorn digilibrary.wsgi:application --log-file -
